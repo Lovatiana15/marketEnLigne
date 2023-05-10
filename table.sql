@@ -10,7 +10,7 @@ create table commande(
     id serial primary key not null,
     id_client int references client(id),
     date_commande date not null,
-    mode_payement varchar(50)
+    mode_payement varchar check(mode_payement in ('cash', 'mvola')),
 );
 CREATE TABLE type_articles(
         id serial  NOT NULL ,
@@ -20,6 +20,7 @@ create table article(
     id serial primary key not null,
     article_name varchar(50),
     descriptions text,
+    prix_unitaire float not null
     id_type_article int references type_articles(id)
 );
 create table ligne_de_commande(
