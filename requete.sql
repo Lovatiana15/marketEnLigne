@@ -1,6 +1,6 @@
 --1- Proposez un MCD pour cette base de données, mettez vous d’accord, et implémentez le dans une base de données. 
 --2- Insérez des données fictives, notamment un utilisateur (nom = Rakoto) qui a acheté 5 yaourts avec MVola.
-Insert into client (id, name, email, adresse, phone) values
+Insert into client (id, first_name, last_name, adresse, phone) values
 (1, 'Rakoto', 'rakoto@gmail.com', 'ivandry', '0342838122'),
 (2, 'RAsoa', 'rasoa@gmail.com', 'isotry', '0341214756');
 
