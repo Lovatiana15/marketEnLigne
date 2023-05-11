@@ -1,10 +1,10 @@
 create database marketEnLigne;
-create table client(
+create table utilisateur(
     id serial primary key not null,
     first_name varchar(50),
     last_name varchar(50),
     adresse varchar (20),
-    phone varchar (14),
+    phone varchar (14)
 );
 create table commande(
     id serial primary key not null,
