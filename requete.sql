@@ -1,14 +1,15 @@
 --1- Proposez un MCD pour cette base de données, mettez vous d’accord, et implémentez le dans une base de données. 
 --2- Insérez des données fictives, notamment un utilisateur (nom = Rakoto) qui a acheté 5 yaourts avec MVola.
-Insert into client (id, first_name, last_name, adresse, phone) values
+Insert into utilisateur values
 (1, 'Rakoto', 'rakoto@gmail.com', 'ivandry', '0342838122'),
-(2, 'RAsoa', 'rasoa@gmail.com', 'isotry', '0341214756');
+(2, 'RAsoa', 'rasoa@gmail.com', 'isotry', '0341214756'),
+(3, 'Lovatiana', 'Randria', 'lova@gmail.com', '0645224557');
 
-INSERT INTO commande(id_client, date_commande, mode_paiement)
+INSERT INTO commande(id_client, date_commande, mode_payement)
 VALUES (1, '2023-05-10', 'cash');
-INSERT INTO commande(id_client, date_commande, mode_paiement)
+INSERT INTO commande(id_client, date_commande, mode_payement)
 VALUES(2, '2023-05-11', 'mvola');
-INSERT INTO commande(id_client, date_commande, mode_paiement) 
+INSERT INTO commande(id_client, date_commande, mode_payement) 
 VALUES (3, '2023-04-04', 'cash');
 
 INSERT INTO type_articles(type_article) 
