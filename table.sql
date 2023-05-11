@@ -8,19 +8,19 @@ create table utilisateur(
 );
 create table commande(
     id serial primary key not null,
-    id_client int references client(id),
+    id_client int references utilisateur(id),
     date_commande date not null,
-    mode_payement varchar check(mode_payement in ('cash', 'mvola')),
+    mode_payement varchar check(mode_payement in ('cash', 'mvola'))
 );
 CREATE TABLE type_articles(
-        id serial  NOT NULL ,
-        type_article Varchar (50) NOT NULL
+    id serial primary key,
+    type_article Varchar (50) NOT NULL
 );
 create table article(
     id serial primary key not null,
     article_name varchar(50),
     descriptions text,
-    prix_unitaire float not null
+    prix_unitaire float not null,
     id_type_article int references type_articles(id)
 );
 create table ligne_de_commande(
