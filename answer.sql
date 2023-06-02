@@ -29,7 +29,7 @@ SELECT SUM(article.prix_unitaire * ligne_de_commande.quantite) AS total_revenue
 FROM commande
 INNER JOIN ligne_de_commande ON commande.id = ligne_de_commande.id_commande
 INNER JOIN article ON ligne_de_commande.id_article = article.id
-WHERE date_commande???? AND commande.mode_payement = 'cash';
+WHERE date_part('year',date_commande) = '2023';
 
 --4. Bonus si c’est bien expliqué : Si nous étions le directeur du magasin, cela nous intéresserait vraiment d’avoir un bilan mensuel.
 --Cherchez la requête SQL qui permet d’afficher les 12 mois de l’année actuelle, avec le nombre total de commandes reçues à chaque mois,
