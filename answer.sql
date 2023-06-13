@@ -25,7 +25,7 @@ GROUP BY article.article_name
 ORDER BY quantite_vendue DESC;
 
 --3/e - Combien on a gagné cette année ? Pour le savoir: affichez le total des commandes payées pour cette année ci.
-SELECT SUM(article.prix_unitaire * ligne_de_commande.quantite) AS total_revenue
+SELECT SUM(article.prix_unitaire * contain.quantite) AS total_revenue
 FROM commande
 INNER JOIN ligne_de_commande ON commande.id = ligne_de_commande.id_commande
 INNER JOIN article ON ligne_de_commande.id_article = article.id
@@ -35,4 +35,10 @@ WHERE date_part('year',date_commande) = '2023';
 --Cherchez la requête SQL qui permet d’afficher les 12 mois de l’année actuelle, avec le nombre total de commandes reçues à chaque mois,
 --ainsi que le montant total que ces commandes ont rapporté ce mois-là, auquel vous allez concaténer le mot “Ar”.
 
+create view vue_mois as select to_char(generate_series('2023-01-01'::date,'2023-12-01'::date,'1 month'),'month') as mois;
+
+select mois , SUM(ligne_de_commande.quantite) as total_commande,  SUM(article.prix_unitaire * ligne_de_commande.quantite)
+from mois_view 
+left join commande on to_char(date_part('month',date_commande), 'month') = mois
+group by mois;
 
